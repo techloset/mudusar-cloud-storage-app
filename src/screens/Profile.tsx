@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
-import { Switch, View, Text, Pressable, StyleSheet, Image, StatusBar, ScrollView, TextInput, KeyboardAvoidingView } from 'react-native'
+import { Dimensions, Switch, View, Text, Pressable, StyleSheet, Image, StatusBar, ScrollView, TextInput, KeyboardAvoidingView } from 'react-native'
 import ProgressBar from '../assets/images/svg/progressBar1.svg'
 import Edit from '../assets/images/svg/edit.svg'
 import CustomButton from '../components/button/Button';
 import List from '../components/profileList/List';
 import RightArrow from '../assets/images/svg/rightIcon.svg'
-// import CustomSwitch from 'react-native-custom-switch';
+import ToggleSwitch from 'toggle-switch-react-native'
 function Profile({ navigation }: any) {
+    const screenWidth = Dimensions.get('window').width
+
     const [isHide, setIsHide] = useState(true)
-    const [isEnabled, setIsEnabled] = useState(false);
+    const [isEnabled, setIsEnabled] = useState(true);
+    const [isEnabled1, setIsEnabled1] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+    const toggleSwitch1 = () => setIsEnabled1(previousState => !previousState);
+
     return (
         <View style={styles.parent}>
             <StatusBar barStyle={'dark-content'} />
@@ -32,7 +37,7 @@ function Profile({ navigation }: any) {
                     <Text style={styles.gb100}>{isHide ? 'of 100 GB' : null}</Text>
                 </View>
 
-                <ProgressBar width={'100%'} style={{ marginTop: 9 }} />
+                <ProgressBar width={screenWidth < 400 ? '100%' : '305px'} style={{ marginTop: 9 }} />
                 <CustomButton onPress={() => navigation.navigate('StorageManagement')} titleStyle={styles.buttonTitle} buttonStyle={styles.button} title='Increase storage space'></CustomButton>
             </View>
             <ScrollView style={styles.list}>
@@ -40,22 +45,25 @@ function Profile({ navigation }: any) {
 
                     <List title={'Storage management'} img={<RightArrow />} />
                     <List title={'Devices'} description={'iPhone, Macbook, iPad'} img={<RightArrow />} />
-                    <List title={'Camera uploads'} img={<Switch
-                        trackColor={{ false: "#767577", true: "#81b0ff" }}
-                        thumbColor={isEnabled ? "white" : "white"}
-                        ios_backgroundColor="#3e3e3e"
-                        onValueChange={toggleSwitch}
-                        value={isEnabled}
+                    <List title={'Camera uploads'} img={<ToggleSwitch
+                        isOn={isEnabled}
+                        onColor="#447BFB"
+                        offColor="#959FBA"
+                        labelStyle={{ color: "black", fontWeight: "900" }}
+                        size="medium"
+                        onToggle={toggleSwitch}
                     />} />
-                    <List title={'Use data for file transfer'} img={<Switch
-                        trackColor={{ false: "#767577", true: "#81b0ff" }}
-                        thumbColor={isEnabled ? "white" : "white"}
-                        ios_backgroundColor="#3e3e3e"
-                        onValueChange={toggleSwitch}
-                        value={isEnabled}
+                    <List title={'Use data for file transfer'} img={<ToggleSwitch
+                        isOn={isEnabled1}
+                        onColor="#447BFB"
+                        offColor="#959FBA"
+                        labelStyle={{ color: "black", fontWeight: "900" }}
+                        size="medium"
+                        onToggle={toggleSwitch1}
                     />} />
                 </View>
             </ScrollView>
+
         </View>
     )
 }

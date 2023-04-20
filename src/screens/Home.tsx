@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, Pressable, StyleSheet, Image, StatusBar, ScrollView, TextInput, KeyboardAvoidingView } from 'react-native'
+import { Dimensions, View, Text, Pressable, StyleSheet, Image, StatusBar, ScrollView, TextInput, KeyboardAvoidingView, useWindowDimensions } from 'react-native'
 import ProgressBar from '../assets/images/svg/progressBar.svg'
 import Card from '../components/homeCard/Card'
 import Img1 from '../assets/images/svg/card1Img1.svg'
@@ -19,29 +19,14 @@ import Card4Img2 from '../assets/images/svg/card4Img2.svg'
 import Card4Img3 from '../assets/images/svg/card4Img3.svg'
 import Card4Img4 from '../assets/images/svg/card4Img4.svg'
 import Search from '../assets/images/svg/search.svg'
+
+
+
+
 const Home = () => {
     const [isHide, setIsHide] = useState(true)
     const [isKeyboardVisible, setKeyboardVisible] = useState(false);
-
-    //  useEffect(() => {
-    //     const keyboardDidShowListener = Keyboard.addListener(
-    //       'keyboardDidShow',
-    //       () => {
-    //         setKeyboardVisible(true); // or some other action
-    //       }
-    //     );
-    //     const keyboardDidHideListener = Keyboard.addListener(
-    //       'keyboardDidHide',
-    //       () => {
-    //         setKeyboardVisible(false); // or some other action
-    //       }
-    //     );
-
-    //     return () => {
-    //       keyboardDidHideListener.remove();
-    //       keyboardDidShowListener.remove();
-    //     };
-    //   }, []);
+    const screenWidth = Dimensions.get('window').width
     return (
         <KeyboardAvoidingView style={styles.parent} >
             <StatusBar barStyle={'dark-content'} />
@@ -51,12 +36,11 @@ const Home = () => {
                 <Text style={styles.title}>at the moment you have</Text>
                 <View style={styles.child1Content}>
 
-                    <Text style={styles.gb32}>{isHide ? '32,5 GB' : null} </Text>
-                    <Text style={styles.gb100}>{isHide ? 'of 100 GB' : null}</Text>
+                    <Text style={styles.gb32}>32,5 GB</Text>
+                    <Text style={styles.gb100}>of 100 GB </Text>
                 </View>
                 <View style={styles.progressSec}>
-                    {isHide ?
-                        <ProgressBar width={'100%'} style={{ marginRight: 25, marginTop: 9 }} /> : null}
+                    <ProgressBar width={screenWidth < 400 ? '100%' : '305px'} style={{}} />
                 </View>
             </View>
             <View style={styles.child2}>
@@ -72,22 +56,23 @@ const Home = () => {
                 </View>
 
                 <View style={styles.headerBox}>
-                    <Text style={styles.boxText1}>FILES</Text>
-                    <Text style={styles.boxText2}>FOLDERS</Text>
+                    <View style={{ position: 'relative' }}>
+                        <Text style={styles.boxText1}>FILES</Text>
+                        {/* <Text style={{
+                            borderTopWidth: 3, borderTopLeftRadius: 3, borderTopRightRadius: 3, borderColor: '#447BFB', backgroundColor: 'red', bottom: 0, height: 3
+                        }}></Text> */}
+                    </View>
+                    <View style={{ position: 'relative' }}>
+                        <Text style={styles.boxText2}>FOLDERS</Text>
+                        <Text style={{ borderTopWidth: 4, borderTopLeftRadius: 4, borderTopRightRadius: 4, borderColor: '#447BFB', height: 4 }}></Text>
+                    </View>
                 </View>
                 <ScrollView >
                     <View style={styles.cards}>
-
-                        {/* <View style={{ gap: 25, display: 'flex', flexWrap: 'wrap', flexDirection: 'row' }}> */}
                         <Card img1={<Img1 />} img2={<Img2 />} img3={<Img3 />} img4={<Img4 />} description={'12 f · 2.1 gb'} title={'The next   '} title1={'big thing'} />
-
                         <Card img1={<Card2Img1 />} img2={<Card2Img4 />} img3={<Card2Img2 />} img4={<Card2Img3 />} description={'7 f · 523 mb'} title={'Top Secret'} />
                         <Card img1={<Card3Img1 />} img2={<Card3Img2 />} img4={<Card3Img3 />} description={'3 f · 192 mb'} title={'Freebie    '} title1={'project'} />
-                        {/* </View> */}
-                        {/* <View style={{ gap: 25, display: 'flex', flexWrap: 'wrap', flexDirection: 'row' }}> */}
-
                         <Card img1={<Card4Img1 />} img2={<Card4Img2 />} img3={<Card4Img4 />} img4={<Card4Img3 />} description={'453 f · 1.7 gb'} title={'London '} title1={'Meetup'} />
-                        {/* </View> */}
                     </View>
                 </ScrollView>
             </View>
@@ -95,14 +80,17 @@ const Home = () => {
         </KeyboardAvoidingView>
     )
 }
+
+
+
+
 const styles = StyleSheet.create({
     parent: {
         flex: 1,
         backgroundColor: '#336DF3'
     },
     child1: {
-        flex: 1.2,
-        // backgroundColor: 'aqua'
+
     },
     child2: {
         flex: 1.8,
@@ -167,10 +155,14 @@ const styles = StyleSheet.create({
         color: '#ABC3FC',
     },
     progressSec: {
-        display: 'flex',
-        flexDirection: 'column',
-        width: '100%',
-        marginLeft: 25
+        marginRight: 25,
+        width: '85%',
+        marginTop: 9,
+        // alignItems: 'center',
+        marginLeft: 25,
+
+        // justifyContent: 'flex-start',
+        marginBottom: 40
     },
     container: {
         flexDirection: 'row',
@@ -206,8 +198,8 @@ const styles = StyleSheet.create({
         fontFamily: 'avenir-next-medium',
         lineHeight: 17,
         color: '#7E8494',
+        paddingHorizontal: 20,
         paddingVertical: 16,
-        paddingHorizontal: 20
 
     },
     boxText2: {
@@ -217,10 +209,10 @@ const styles = StyleSheet.create({
         lineHeight: 17,
         color: '#244CAA',
         paddingVertical: 16,
-        borderBottomWidth: 3,
-        borderColor: '#447BFB',
+        // borderBottomWidth: 3,
+        // borderColor: '#447BFB',
         paddingHorizontal: 20,
-        borderRadius: 3
+        // borderRadius: 3
         // borderBottomLeftRadius: 3
     }
 })

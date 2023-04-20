@@ -1,5 +1,6 @@
 import React from 'react'
-import { View, Text, Pressable, StyleSheet, Image, ScrollView, FlatList } from 'react-native'
+import { Dimensions, View, Text, Pressable, StyleSheet, Image, ScrollView, FlatList } from 'react-native'
+import Pie from 'react-native-pie';
 import LeftArrow from '../assets/images/svg/leftArrow.svg'
 import List from '../components/loacalStorageList/List'
 import PlayButton from '../assets/images/svg/playButton.svg'
@@ -10,8 +11,11 @@ import ArchiveLogo from '../assets/images/svg/archiveImg.svg'
 import Item from '../components/flatListItem/Item'
 import PieImg from '../assets/images/svg/Pie.svg'
 
-import { Pie } from 'react-native-pie';
+
+
+
 const StorageManagement = ({ navigation }: any) => {
+    const screenWidth = Dimensions.get('window').width
     const data = [
         { id: 1, renderItem: <Item title={'Music'} color={'#2196F3'} radius={5} padding={8} /> },
         { id: 2, renderItem: <Item title={'Image'} color={'#FFC107'} radius={5} padding={8} /> },
@@ -40,9 +44,27 @@ const StorageManagement = ({ navigation }: any) => {
                 </Text>
                 <View style={{ width: 20 }}></View>
             </View>
-            <View style={{ alignItems: 'center', marginTop: 21, }}>
+            <View style={{ alignItems: 'center', marginTop: 20, }}>
+                <Pie
 
-                <PieImg style={{ marginRight: 20 }} />
+                    radius={screenWidth < 321 ? 120 : 140}
+                    sections={[
+                        { percentage: 12, color: '#FFC107', },
+                        { percentage: 22, color: '#4AC367' },
+                        { percentage: 12, color: '#8D6E63' },
+                        { percentage: 22, color: '#00BCD4' },
+                        { percentage: 12, color: '#DA5DF5' },
+                        { percentage: 20, color: '#2196F3' },
+                    ]}
+                    strokeCap={'butt'}
+                    dividerSize={10}
+                    innerRadius={70}
+                    backgroundColor="#ff000000"
+                />
+                <View style={styles.gauge} >
+                    <Text style={styles.gaugeText}> 67.5 GB</Text>
+                </View>
+                {/* <PieImg style={{ marginRight: 20 }} /> */}
             </View>
             <View style={styles.flatList}>
 
@@ -53,9 +75,19 @@ const StorageManagement = ({ navigation }: any) => {
                 />
             </View>
             <View style={styles.headerBox}>
-                <Text style={styles.boxText2}>least used</Text>
-                <Text style={styles.boxText1}>largest</Text>
-                <Text style={styles.boxText1}>Latest accessed</Text>
+                <View>
+                    <Text style={styles.boxText2}>LEAST USED</Text>
+                    <Text style={{ paddingLeft: 22, marginHorizontal: 16, borderTopWidth: 4, borderTopLeftRadius: 4, borderTopRightRadius: 4, borderColor: '#447BFB', height: 4 }}></Text>
+
+                </View>
+                <View>
+
+                    <Text style={styles.boxText1}>LARGEST</Text>
+                </View>
+                <View>
+
+                    <Text style={styles.boxText1}>LATEST ACCESSED</Text>
+                </View>
             </View>
             <ScrollView>
                 <View>
@@ -70,6 +102,15 @@ const StorageManagement = ({ navigation }: any) => {
         </View>
     )
 }
+
+
+
+
+
+
+
+
+
 const styles = StyleSheet.create({
     header: {
         display: 'flex',
@@ -92,7 +133,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         flexDirection: 'row',
         borderBottomWidth: 1,
-        borderBottomColor: '#7E8494',
+        // borderBottomColor: '#7E8494',
+        borderBottomColor: 'lightgrey',
         marginTop: 25
     },
     boxText1: {
@@ -112,11 +154,9 @@ const styles = StyleSheet.create({
         lineHeight: 17,
         color: '#244CAA',
         paddingVertical: 16,
-        borderBottomWidth: 3,
-        borderColor: '#447BFB',
         paddingHorizontal: 20,
-        borderRadius: 3
         // borderBottomLeftRadius: 3
+        paddingLeft: 22
     },
     flatList: {
         // width: '85%'
@@ -124,6 +164,24 @@ const styles = StyleSheet.create({
         // justifyContent
         alignItems: 'center',
         marginTop: 25
-    }
+    },
+    gauge: {
+        position: 'absolute',
+        // backgroundColor: 'aqua',
+        top: '45%',
+
+        // width: 100,
+        // height: 160,
+        alignItems: 'center',
+        // justifyContent: 'flex-end',
+    },
+
+    gaugeText: {
+        fontSize: 20,
+        fontWeight: '600',
+        fontFamily: 'avenir-next-medium',
+        lineHeight: 27,
+        color: '#244CAA',
+    },
 })
 export default StorageManagement

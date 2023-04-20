@@ -1,7 +1,40 @@
 import React from 'react'
-import { Image, StatusBar, StyleSheet, Text, View } from 'react-native'
+import { PixelRatio, Dimensions, Image, StatusBar, StyleSheet, Text, View } from 'react-native'
 
 const Notification = () => {
+
+    const {
+        width: SCREEN_WIDTH,
+        height: SCREEN_HEIGHT
+    } = Dimensions.get('window');
+    const widthBaseScale = SCREEN_WIDTH;
+    const heightBaseScale = SCREEN_HEIGHT;
+    function normalize(size, based = 'width') {
+        const newSize = (based === 'height') ?
+            size * heightBaseScale : size * widthBaseScale;
+        return Math.round(PixelRatio.roundToNearestPixel(newSize));
+    }
+    //for width  pixel
+    const widthPixel = (size) => {
+        return normalize(size, 'width');
+    };
+    //for height  pixel
+    const heightPixel = (size) => {
+        return normalize(size, 'height');
+    };
+    //for font  pixel
+    const fontPixel = (size) => {
+        return heightPixel(size);
+    };
+    //for Margin and Padding vertical pixel
+    const pixelSizeVertical = (size) => {
+        return heightPixel(size);
+    };
+    //for Margin and Padding horizontal pixel
+    const pixelSizeHorizontal = (size) => {
+        return widthPixel(size);
+    };
+
     return (
         <View style={styles.parent}>
             <StatusBar translucent backgroundColor={'transparent'}
@@ -19,7 +52,7 @@ const Notification = () => {
                         <Text style={styles.mainSecHeading1}>
                             No notifcations yet
                         </Text>
-                        <Text style={styles.detail}>
+                        <Text style={[styles.detail, {}]}>
                             Here you will see the external changes
                             in your shared folders, tags from your
                             peers and other updates
@@ -29,7 +62,9 @@ const Notification = () => {
             </View>
         </View>
     )
+
 }
+
 const styles = StyleSheet.create({
     parent: {
         flex: 1
@@ -40,7 +75,6 @@ const styles = StyleSheet.create({
     },
     child2: {
         flex: 3,
-        // justifyContent: 'flex-start',
         alignItems: 'center'
     },
     heading: {
@@ -57,15 +91,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         height: '100%',
         width: '100%',
-        // backgroundColor: 'white',
-        // justifyContent: 'center'
         marginTop: 40
     },
     mainSecImg: {
-        // width: '81%',
-        // height: '40%'
-        width: 305,
-        height: 246
+        width: '90%',
+        height: '45%'
+        // width: 305,
+        // height: 246
     },
     mainSecHeading1: {
         fontSize: 20,
@@ -82,11 +114,10 @@ const styles = StyleSheet.create({
         fontWeight: '500',
         fontFamily: 'avenir-next-medium',
         color: '#5D6373',
-        // marginLeft: 23,
         marginTop: 8,
         lineHeight: 22,
         textAlign: 'center',
-        marginHorizontal: 30
+        marginHorizontal: 30,
     }
 })
 export default Notification
