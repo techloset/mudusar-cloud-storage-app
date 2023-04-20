@@ -92,8 +92,8 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         lineHeight: 46,
         color: '#244CAA',
-        // fontFamily: 'AvenirNext-DemiBold',
-        fontFamily: 'avenir-next-medium',
+        fontFamily: 'AvenirNext-DemiBold',
+        // fontFamily: 'avenir-next-medium',
         width: '85%',
         marginTop: 22
     },

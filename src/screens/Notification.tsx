@@ -80,7 +80,8 @@ const styles = StyleSheet.create({
     heading: {
         fontSize: 34,
         fontWeight: '600',
-        fontFamily: 'avenir-next-medium',
+        // fontFamily: 'avenir-next-medium',
+        fontFamily: 'AvenirNext-DemiBold',
         color: '#244CAA',
         marginLeft: 23,
         marginTop: 25,
@@ -102,7 +103,8 @@ const styles = StyleSheet.create({
     mainSecHeading1: {
         fontSize: 20,
         fontWeight: '600',
-        fontFamily: 'avenir-next-medium',
+        // fontFamily: 'avenir-next-medium',
+        fontFamily: 'AvenirNext-DemiBold',
         color: '#244CAA',
         // marginLeft: 23,
         marginTop: 36,

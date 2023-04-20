@@ -37,7 +37,7 @@ const Home = () => {
                 <View style={styles.child1Content}>
 
                     <Text style={styles.gb32}>32,5 GB</Text>
-                    <Text style={styles.gb100}>of 100 GB </Text>
+                    <Text style={styles.gb100}> of 100 GB </Text>
                 </View>
                 <View style={styles.progressSec}>
                     <ProgressBar width={screenWidth < 400 ? '100%' : '305px'} style={{}} />
@@ -118,7 +118,9 @@ const styles = StyleSheet.create({
     heading: {
         fontSize: 34,
         fontWeight: '600',
-        fontFamily: 'avenir-next-medium',
+        // fontFamily: 'avenir-next-medium',
+        fontFamily: 'AvenirNext-DemiBold',
+
         lineHeight: 47,
         marginTop: 22,
         marginLeft: 25,
@@ -143,14 +145,18 @@ const styles = StyleSheet.create({
     gb32: {
         fontSize: 24,
         fontWeight: '600',
-        fontFamily: 'avenir-next-medium',
+        // fontFamily: 'avenir-next-medium',
+        fontFamily: 'AvenirNext-DemiBold',
+
         lineHeight: 32,
         color: 'white',
     },
     gb100: {
         fontSize: 18,
         fontWeight: '600',
-        fontFamily: 'avenir-next-medium',
+        // fontFamily: 'avenir-next-medium',
+        fontFamily: 'AvenirNext-DemiBold',
+
         lineHeight: 24,
         color: '#ABC3FC',
     },
@@ -195,7 +201,9 @@ const styles = StyleSheet.create({
     boxText1: {
         fontSize: 13,
         fontWeight: '600',
-        fontFamily: 'avenir-next-medium',
+        // fontFamily: 'avenir-next-medium',
+        fontFamily: 'AvenirNext-DemiBold',
+
         lineHeight: 17,
         color: '#7E8494',
         paddingHorizontal: 20,
@@ -205,9 +213,11 @@ const styles = StyleSheet.create({
     boxText2: {
         fontSize: 13,
         fontWeight: '600',
-        fontFamily: 'avenir-next-medium',
+        // fontFamily: 'avenir-next-medium',
+        fontFamily: 'AvenirNext-DemiBold',
+
         lineHeight: 17,
-        color: '#244CAA',
+        color: '#447BFB',
         paddingVertical: 16,
         // borderBottomWidth: 3,
         // borderColor: '#447BFB',

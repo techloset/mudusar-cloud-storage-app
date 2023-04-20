@@ -121,7 +121,9 @@ const styles = StyleSheet.create({
         // marginTop: 10
     },
     headerText: {
-        fontFamily: 'avenir-next-bold',
+        // fontFamily: 'avenir-next-bold',
+        fontFamily: 'AvenirNext-DemiBold',
+
         color: '#244CAA',
         fontSize: 18,
         fontWeight: '600',

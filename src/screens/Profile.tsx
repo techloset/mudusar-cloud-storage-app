@@ -85,7 +85,9 @@ const styles = StyleSheet.create({
     profile: {
         fontSize: 34,
         fontWeight: '600',
-        fontFamily: 'avenir-next-medium',
+        // fontFamily: 'avenir-next-medium',
+        fontFamily: 'AvenirNext-DemiBold',
+
         lineHeight: 47,
         marginTop: 22,
         // marginLeft: 25,
@@ -103,7 +105,9 @@ const styles = StyleSheet.create({
     heading: {
         fontSize: 18,
         fontWeight: '600',
-        fontFamily: 'avenir-next-medium',
+        // fontFamily: 'avenir-next-medium',
+        fontFamily: 'AvenirNext-DemiBold',
+
         lineHeight: 24,
         color: '#244CAA'
     },
@@ -124,21 +128,27 @@ const styles = StyleSheet.create({
     gb32: {
         fontSize: 24,
         fontWeight: '600',
-        fontFamily: 'avenir-next-medium',
+        // fontFamily: 'avenir-next-medium',
+        fontFamily: 'AvenirNext-DemiBold',
+
         lineHeight: 32,
         color: '#244CAA',
     },
     gb100: {
         fontSize: 18,
         fontWeight: '600',
-        fontFamily: 'avenir-next-medium',
+        // fontFamily: 'avenir-next-medium',
+        fontFamily: 'AvenirNext-DemiBold',
+
         lineHeight: 24,
         color: '#89AAFA',
     },
     buttonTitle: {
         fontSize: 16,
         fontWeight: '600',
-        fontFamily: 'avenir-next-medium',
+        // fontFamily: 'avenir-next-medium',
+        fontFamily: 'AvenirNext-DemiBold',
+
         lineHeight: 21,
         color: 'white',
         textAlign: 'center'
