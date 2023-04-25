@@ -2,7 +2,7 @@ import React from 'react'
 import { PixelRatio, Dimensions, Image, StatusBar, StyleSheet, Text, View } from 'react-native'
 
 const Notification = () => {
-
+    const width = Dimensions.get('window').width
     const {
         width: SCREEN_WIDTH,
         height: SCREEN_HEIGHT
@@ -40,12 +40,14 @@ const Notification = () => {
             <StatusBar translucent backgroundColor={'transparent'}
                 barStyle={'dark-content'} />
             <View style={styles.child1}>
+
                 <Image style={{ width: '100%', height: 72 }}
                     source={require('../assets/images/statusBarImg.png')}></Image>
                 <Text style={styles.heading}>Notifications</Text>
             </View>
             <View style={styles.child2}>
                 <View style={styles.mainSec}>
+
                     <Image style={styles.mainSecImg} resizeMode='contain'
                         source={require('../assets/images/notification-img.png')} />
                     <View>
@@ -53,8 +55,8 @@ const Notification = () => {
                             No notifcations yet
                         </Text>
                         <Text style={[styles.detail, {}]}>
-                            Here you will see the external changes
-                            in your shared folders, tags from your
+                            Here you will see the external changes {width > 300 ? "\n" : null}
+                            in your shared folders, tags from your {width > 300 ? "\n" : null}
                             peers and other updates
                         </Text>
                     </View>
@@ -95,10 +97,12 @@ const styles = StyleSheet.create({
         marginTop: 40
     },
     mainSecImg: {
-        width: '90%',
-        height: '45%'
-        // width: 305,
-        // height: 246
+        // width: '100%',
+        // height: '45%',
+        // backgroundColor: 'red',
+        // marginHorizontal: 35
+        width: 305,
+        height: 246
     },
     mainSecHeading1: {
         fontSize: 20,
@@ -119,7 +123,7 @@ const styles = StyleSheet.create({
         marginTop: 8,
         lineHeight: 22,
         textAlign: 'center',
-        marginHorizontal: 30,
+        // marginHorizontal: 30,
     }
 })
 export default Notification

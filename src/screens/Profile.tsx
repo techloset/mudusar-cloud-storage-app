@@ -37,7 +37,7 @@ function Profile({ navigation }: any) {
                     <Text style={styles.gb100}>{isHide ? 'of 100 GB' : null}</Text>
                 </View>
 
-                <ProgressBar width={screenWidth < 400 ? '100%' : '305px'} style={{ marginTop: 9 }} />
+                <ProgressBar width={screenWidth < 393 ? '100%' : '305px'} style={{ marginTop: 9 }} />
                 <CustomButton onPress={() => navigation.navigate('StorageManagement')} titleStyle={styles.buttonTitle} buttonStyle={styles.button} title='Increase storage space'></CustomButton>
             </View>
             <ScrollView style={styles.list}>

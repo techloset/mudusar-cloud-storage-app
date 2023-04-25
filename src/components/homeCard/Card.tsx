@@ -21,7 +21,7 @@ const Card = (props: any) => {
 const styles = StyleSheet.create({
     parent: {
         backgroundColor: '#F5F7FC',
-        borderRadius: 35,
+        borderRadius: 42,
         display: 'flex',
         flexDirection: 'row',
         gap: 20,

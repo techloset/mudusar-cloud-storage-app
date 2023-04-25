@@ -24,11 +24,12 @@ const styles = StyleSheet.create({
         color: '#2D60D6',
         textAlign: 'right',
         fontSize: 24,
-        fontFamily: 'avenir-next-medium',
+        fontFamily: 'AvenirNext-DemiBold',
         // marginTop: 628,
         // marginBottom: 118,
-        fontWeight: '700',
-        marginRight: 19
+        fontWeight: '600',
+        marginRight: 19,
+        lineHeight: 33
     },
     button: {
         backgroundColor: '#FF5495',
@@ -36,7 +37,9 @@ const styles = StyleSheet.create({
         paddingVertical: 18,
         borderRadius: 23,
         transform: [{ rotate: '45deg' }],
-        marginRight: 45, marginTop: 17, marginBottom: 32
+        marginRight: 53,
+        marginTop: 25,
+        marginBottom: 40
 
     },
     buttonTitle: {

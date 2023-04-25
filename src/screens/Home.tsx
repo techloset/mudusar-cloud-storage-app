@@ -40,7 +40,7 @@ const Home = () => {
                     <Text style={styles.gb100}> of 100 GB </Text>
                 </View>
                 <View style={styles.progressSec}>
-                    <ProgressBar width={screenWidth < 400 ? '100%' : '305px'} style={{}} />
+                    <ProgressBar width={screenWidth < 376 ? '100%' : '305px'} style={{}} />
                 </View>
             </View>
             <View style={styles.child2}>
