@@ -1,6 +1,7 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 import MoreIcon from '../../assets/images/svg/moreIcon.svg'
+// import { Image } from 'react-native-svg'
 const Card = (props: any) => {
     return (
         <View style={styles.parent}>
@@ -8,10 +9,12 @@ const Card = (props: any) => {
                 <Text style={styles.text}>{props.title} {'\n'}{props.title1}</Text>
                 <Text style={styles.desc}>{props.description}</Text>
                 <View style={styles.imgs}>
-                    <View style={styles.img1}>{props.img1}</View>
-                    <View style={styles.img2}>{props.img2}</View>
-                    <View style={styles.img3}>{props.img4}</View>
-                    <View style={styles.img4}>{props.img3}</View>
+                    <Image source={props.img1} style={styles.img1}></Image>
+                    <Image source={props.img2} style={styles.img2}></Image>
+                    <Image source={props.img3} style={styles.img3}></Image>
+                    {/* <Image source={props.img4} style={styles.img4}></Image> */}
+                    <View style={styles.img4}>{props.img4}</View>
+
                 </View>
             </View>
             <MoreIcon style={{ marginTop: 5 }} />
@@ -64,19 +67,38 @@ const styles = StyleSheet.create({
     img1: {
         position: 'absolute',
         left: 0,
-        // top: 0
+        borderWidth: 2,
+        borderRadius: 11,
+        borderColor: '#F5F7FC',
+        height: 28,
+        width: 28
     },
     img2: {
         position: 'absolute',
-        left: 20
+        left: 20,
+        borderWidth: 2,
+        borderRadius: 11,
+        borderColor: '#F5F7FC',
+        height: 28,
+        width: 28
     },
     img3: {
         position: 'absolute',
-        left: 40
+        left: 40,
+        borderWidth: 2,
+        borderRadius: 11,
+        borderColor: '#F5F7FC',
+        height: 28,
+        width: 28
     },
     img4: {
         position: 'absolute',
-        left: 60
+        left: 60,
+        // borderWidth: 2,
+        // borderRadius: 11,
+        // borderColor: '#F5F7FC',
+        // height: 28,
+        // width: 28
     }
 })
 export default Card

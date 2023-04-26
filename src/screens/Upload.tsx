@@ -6,6 +6,9 @@ import CrossIcon from '../assets/images/svg/crossIcon.svg'
 import UploadImg from '../assets/images/svg/upload.svg'
 import Carmera from '../assets/images/svg/camera.svg'
 import Scan from '../assets/images/svg/scan.svg'
+
+
+
 const Upload = (props: any) => {
     const [modalVisible, setModalVisible] = useState(false)
     useFocusEffect(
@@ -17,7 +20,7 @@ const Upload = (props: any) => {
         }, [])
     );
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white' }}>
             <LocalStorage />
             <Button title=" UPLOAD " onPress={() => setModalVisible(true)} />
             <Modal visible={modalVisible} animationType="slide" transparent={true} >
@@ -50,6 +53,10 @@ const Upload = (props: any) => {
         </View>
     )
 }
+
+
+
+
 const styles = StyleSheet.create({
     text: {
         color: 'red',

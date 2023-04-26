@@ -23,7 +23,8 @@ export default List
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 10
+        marginTop: 10,
+
     },
     child1: {
         display: 'flex',
@@ -33,6 +34,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F5F7FC',
         paddingHorizontal: 16,
         paddingVertical: 20,
+        borderRadius: 5
     },
 
     title: {

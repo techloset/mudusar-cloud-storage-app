@@ -6,9 +6,11 @@ import CustomButton from '../components/button/Button';
 import List from '../components/profileList/List';
 import RightArrow from '../assets/images/svg/rightIcon.svg'
 import ToggleSwitch from 'toggle-switch-react-native'
+
+
+
 function Profile({ navigation }: any) {
     const screenWidth = Dimensions.get('window').width
-
     const [isHide, setIsHide] = useState(true)
     const [isEnabled, setIsEnabled] = useState(true);
     const [isEnabled1, setIsEnabled1] = useState(false);
@@ -67,10 +69,14 @@ function Profile({ navigation }: any) {
         </View>
     )
 }
+
+
+
 const styles = StyleSheet.create({
     parent: {
         flex: 1,
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'white'
     },
     child1: {
         // backgroundColor: 'red'

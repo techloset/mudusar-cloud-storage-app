@@ -1,9 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-
 const Item = (props: any) => {
     const { color, radius, padding } = props;
-    console.log(props)
     return (
         <View style={styles.container}>
             <View style={[styles.img, { backgroundColor: color, borderRadius: radius, padding: padding }]}>{props.img}</View>
@@ -11,9 +9,7 @@ const Item = (props: any) => {
         </View>
     )
 }
-
 export default Item
-
 const styles = StyleSheet.create({
     container: {
         display: 'flex',

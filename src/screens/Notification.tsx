@@ -1,6 +1,8 @@
 import React from 'react'
 import { PixelRatio, Dimensions, Image, StatusBar, StyleSheet, Text, View } from 'react-native'
 
+
+
 const Notification = () => {
     const width = Dimensions.get('window').width
     const {
@@ -64,12 +66,14 @@ const Notification = () => {
             </View>
         </View>
     )
-
 }
+
+
 
 const styles = StyleSheet.create({
     parent: {
-        flex: 1
+        flex: 1,
+        backgroundColor: 'white'
     },
     child1: {
         flex: 1,

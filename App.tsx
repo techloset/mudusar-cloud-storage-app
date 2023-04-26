@@ -22,12 +22,13 @@ import LocalStorage from './src/screens/LocalStorage';
 import Profile from './src/screens/Profile';
 import StorageManagement from './src/screens/StorageManagement';
 import Upload from './src/screens/Upload';
+import TapPlusIcon from './src/assets/images/svg/tapBarPlus'
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 
 function HomeTabs() {
-  const [modalVisible, setModalVisible] = useState(false)
+  // const [modalVisible, setModalVisible] = useState(false)
 
   return (
     <Tab.Navigator screenOptions={{ headerShown: false, tabBarStyle: { height: 70 }, tabBarHideOnKeyboard: true }} >
@@ -61,12 +62,11 @@ function HomeTabs() {
         options={{
           tabBarIcon({ focused, size }) {
             return focused ?
-              <TouchableOpacity onPress={() => { focused == true }} style={styles.activeButtonStyle} >
-                <Pressable><CrossIcon height={14} width={14} style={styles.activeStyle} /></Pressable>
-              </TouchableOpacity> :
-              <TouchableOpacity onPress={() => { focused == false; setModalVisible(true) }} style={styles.button} >
-                <Pressable><PlusIcon height={14} width={14} style={styles.buttonTitle} /></Pressable>
-              </TouchableOpacity>
+              <Text style={{
+                paddingRight: 3, backgroundColor: '#E8EFFF', borderRadius: 15, paddingTop: 5,
+                shadowOpacity: 3, elevation: 10, shadowOffset: { width: 10, height: 10 }, shadowColor: 'grey'
+              }}> <TapPlusIcon color={'#447BFB'} /></Text> : <TapPlusIcon color={'#959FBA'} />
+
           },
           tabBarLabel: () => {
             return null

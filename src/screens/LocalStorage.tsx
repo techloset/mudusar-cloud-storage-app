@@ -43,6 +43,7 @@ const LocalStorage = ({ navigation }: any) => {
                         placeholderTextColor="gray"
                         onFocus={() => setIsHidden(false)}
                         onBlur={() => setIsHidden(true)}
+
                     />
                 </View>
             </View>
@@ -74,7 +75,7 @@ const LocalStorage = ({ navigation }: any) => {
 const styles = StyleSheet.create({
     parent: {
         flex: 1,
-
+        backgroundColor: 'white'
     },
     child1: {
         // flex: 1,
@@ -105,7 +106,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#EDF1FA',
         borderRadius: 50,
         paddingHorizontal: 15,
-        elevation: 3,
+        // elevation: 3,
         marginTop: 25,
 
     },
@@ -114,7 +115,8 @@ const styles = StyleSheet.create({
         height: 44,
         marginLeft: 10,
         fontSize: 16,
-        color: '#959FBA'
+        color: '#959FBA',
+
     },
     flatList: {
         // width: '85%'

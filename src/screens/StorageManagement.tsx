@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Dimensions, View, Text, Pressable, StyleSheet, Image, ScrollView, FlatList } from 'react-native'
 import Pie from 'react-native-pie';
 import LeftArrow from '../assets/images/svg/leftArrow.svg'
@@ -15,6 +15,11 @@ import PieImg from '../assets/images/svg/Pie.svg'
 
 
 const StorageManagement = ({ navigation }: any) => {
+    const [isPress, setIsPress] = useState(true);
+    const [isPress1, setIsPress1] = useState(false);
+    const [isPress2, setIsPress2] = useState(false);
+    const [selectedOption, setSelectedOption] = useState('leastUsed');
+
     const screenWidth = Dimensions.get('window').width
     const data = [
         { id: 1, renderItem: <Item title={'Music'} color={'#2196F3'} radius={5} padding={8} /> },
@@ -33,7 +38,7 @@ const StorageManagement = ({ navigation }: any) => {
         );
     };
     return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, backgroundColor: 'white' }}>
             <Image style={{ width: '100%', height: 72 }} source={require('../assets/images/statusBarImg.png')} />
             <View style={styles.header}>
                 <Pressable onPress={() => navigation.goBack()}>
@@ -74,21 +79,28 @@ const StorageManagement = ({ navigation }: any) => {
                     keyExtractor={(item) => item.id.toString()}
                 />
             </View>
+
             <View style={styles.headerBox}>
                 <View>
-                    <Text style={styles.boxText2}>LEAST USED</Text>
-                    <Text style={{ paddingLeft: 22, marginHorizontal: 16, borderTopWidth: 4, borderTopLeftRadius: 4, borderTopRightRadius: 4, borderColor: '#447BFB', height: 4 }}></Text>
-
+                    <Pressable onPress={() => setSelectedOption('leastUsed')}>
+                        <Text style={[styles.boxText1, { color: selectedOption === 'leastUsed' ? '#447BFB' : '#7E8494' }]}>LEAST USED</Text>
+                        {selectedOption === 'leastUsed' ? <Text style={{ borderTopWidth: 4, marginHorizontal: 15, borderTopLeftRadius: 4, borderTopRightRadius: 4, borderColor: '#447BFB', height: 4 }}></Text> : null}
+                    </Pressable>
                 </View>
                 <View>
-
-                    <Text style={styles.boxText1}>LARGEST</Text>
+                    <Pressable onPress={() => setSelectedOption('largest')}>
+                        <Text style={[styles.boxText1, { color: selectedOption === 'largest' ? '#447BFB' : '#7E8494' }]}>LARGEST</Text>
+                        {selectedOption === 'largest' ? <Text style={{ borderTopWidth: 4, marginHorizontal: 15, borderTopLeftRadius: 4, borderTopRightRadius: 4, borderColor: '#447BFB', height: 4 }}></Text> : null}
+                    </Pressable>
                 </View>
                 <View>
-
-                    <Text style={styles.boxText1}>LATEST ACCESSED</Text>
+                    <Pressable onPress={() => setSelectedOption('latestAccessed')}>
+                        <Text style={[styles.boxText1, { color: selectedOption === 'latestAccessed' ? '#447BFB' : '#7E8494' }]}>LATEST ACCESSED</Text>
+                        {selectedOption === 'latestAccessed' ? <Text style={{ borderTopWidth: 4, marginHorizontal: 15, borderTopLeftRadius: 4, borderTopRightRadius: 4, borderColor: '#447BFB', height: 4 }}></Text> : null}
+                    </Pressable>
                 </View>
             </View>
+
             <ScrollView>
                 <View>
                     <List img={<PlayButton height={27} width={27} />} title={'TikTok dance'} description={'mov · 1 time'} color={'#E8F9FB'} />
@@ -107,10 +119,6 @@ const StorageManagement = ({ navigation }: any) => {
 
 
 
-
-
-
-
 const styles = StyleSheet.create({
     header: {
         display: 'flex',
@@ -118,7 +126,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginHorizontal: 20,
         alignItems: 'center',
-        // marginTop: 10
+        marginTop: 10
     },
     headerText: {
         // fontFamily: 'avenir-next-bold',
