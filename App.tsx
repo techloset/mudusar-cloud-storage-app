@@ -22,7 +22,7 @@ import LocalStorage from './src/screens/LocalStorage';
 import Profile from './src/screens/Profile';
 import StorageManagement from './src/screens/StorageManagement';
 import Upload from './src/screens/Upload';
-import TapPlusIcon from './src/assets/images/svg/tapBarPlus'
+import TapPlusIcon from './src/components/TapBarPlus'
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -63,7 +63,7 @@ function HomeTabs() {
           tabBarIcon({ focused, size }) {
             return focused ?
               <Text style={{
-                paddingRight: 3, backgroundColor: '#E8EFFF', borderRadius: 15, paddingTop: 5,
+                paddingRight: 10, backgroundColor: '#E8EFFF', borderRadius: 15, paddingTop: 0,
                 shadowOpacity: 3, elevation: 10, shadowOffset: { width: 10, height: 10 }, shadowColor: 'grey'
               }}> <TapPlusIcon color={'#447BFB'} /></Text> : <TapPlusIcon color={'#959FBA'} />
 

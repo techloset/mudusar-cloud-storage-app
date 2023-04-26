@@ -4,7 +4,7 @@ import { Svg, Path } from 'react-native-svg'
 
 const TapBarPlus = ({ color }) => {
     return (
-        <Svg style={styles.svg} width="62" height="62" viewBox="0 0 62 62" fill="none">
+        <Svg width="42" height="42" viewBox="0 0 42 42" fill="none">
             <Path
                 fillRule="evenodd"
                 clipRule="evenodd"
@@ -24,10 +24,5 @@ const TapBarPlus = ({ color }) => {
 export default TapBarPlus
 
 const styles = StyleSheet.create({
-    svg: {
-        backgroundColor: 'red',
-        padding: 20,
-        height: 200,
-        width: 200
-    }
+
 })
