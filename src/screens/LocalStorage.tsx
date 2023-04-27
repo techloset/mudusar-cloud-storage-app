@@ -54,6 +54,7 @@ const LocalStorage = ({ navigation }: any) => {
                         horizontal={true}
                         renderItem={ItemToRender}
                         keyExtractor={(item) => item.id.toString()}
+                        showsHorizontalScrollIndicator={false}
                     />
                 </View>
                 <ScrollView>
